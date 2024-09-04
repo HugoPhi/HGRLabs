@@ -11,7 +11,9 @@ num_classes = 6  # UCI HAR 数据集中有 6 种活动类型
 # 或者使用 CNN
 # model = model.har_CNNBaseline(num_classes=num_classes).to(device)
 # 或者使用 LSTM
-model = model.har_LSTMBaseline(input_size=9, hidden_size=64, num_layers=2, num_classes=num_classes).to(device)
+# model = model.har_LSTMBaseline(input_size=9, hidden_size=64, num_layers=2, num_classes=num_classes).to(device)
+
+model = model.har_ResBiLSTM(input_size=9, hidden_size=64, num_layers=1, num_classes=6)
 
 criterion = torch.nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
