@@ -52,7 +52,7 @@ class har_LSTMBaseline(torch.nn.Module):
         out = self.fc(out[:, -1, :])  # 使用最后一个时间步的输出
         return out
 
-class har_ResBiLSTM(torch.nn.modules):
+class har_ResBiLSTM(torch.nn.Module):
     def __init__(self, input_size, hidden_size, num_layers, num_classes):
         super(har_ResBiLSTM, self).__init__()
         self.lstm = torch.nn.LSTM(input_size=input_size, hidden_size=hidden_size, num_layers=num_layers, batch_first=True, bidirectional=True)
