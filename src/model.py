@@ -54,7 +54,7 @@ class har_LSTMBaseline(torch.nn.Module):
 
 class har_ResBiLSTM(torch.nn.Module):
     def __init__(self, input_dim, hidden_dim, output_dim, dropout_rate, lambda_l2):
-        super(ResBiLSTM, self).__init__()
+        super(har_ResBiLSTM, self).__init__()
         
         # 双向LSTM层
         self.lstm1 = torch.nn.LSTM(input_size=input_dim, 
