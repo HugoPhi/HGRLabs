@@ -59,21 +59,21 @@ class har_ResBiLSTM(torch.nn.Module):
         # 双向LSTM层
         self.lstm1 = torch.nn.LSTM(input_size=input_dim, 
                              hidden_size=hidden_dim, 
-                             num_layers=1, 
+                             num_layers=3, 
                              batch_first=True, 
                              bidirectional=True, 
                              dropout=dropout_rate)
         
         self.lstm2 = torch.nn.LSTM(input_size=hidden_dim * 2, 
                              hidden_size=hidden_dim, 
-                             num_layers=1, 
+                             num_layers=3, 
                              batch_first=True, 
                              bidirectional=True, 
                              dropout=dropout_rate)
         
         self.lstm3 = torch.nn.LSTM(input_size=hidden_dim * 2, 
                              hidden_size=hidden_dim, 
-                             num_layers=1, 
+                             num_layers=3, 
                              batch_first=True, 
                              bidirectional=True, 
                              dropout=dropout_rate)
@@ -82,8 +82,7 @@ class har_ResBiLSTM(torch.nn.Module):
                              hidden_size=hidden_dim, 
                              num_layers=1, 
                              batch_first=True, 
-                             bidirectional=True, 
-                             dropout=dropout_rate)
+                             bidirectional=True)
         
         # 批归一化层
         self.batch_norm1 = torch.nn.BatchNorm1d(hidden_dim * 2)
